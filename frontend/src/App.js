@@ -1,10 +1,11 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import './App.css';
 import Nav from './Components/Nav/Nav';
-import SignUp from './Components/SignUp/SignUp';
-import Footer from './Components/Footer/Footer';
 import PrivateComponent from './Components/PrivateComponent';
+import SignUp from './Components/SignUp/SignUp';
+import Login from './Components/Login/Login';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/profile' element={<h1>Profile</h1>} />
           </Route>
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
         <Footer />
       </BrowserRouter>
