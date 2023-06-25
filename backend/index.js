@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const connecttoDB = require('./config/db');
 const User = require('./config/User');
+const Product = require('./config/Product');
 
 app.use(express.json());
 app.use(cors());
@@ -48,6 +49,14 @@ app.post('/login', async (req, resp) => {
     if (user) resp.send(user);
     else resp.send({ result: 'No user found' });
   } else resp.send({ result: 'Please provide all data' });
+});
+
+app.post('/addProduct', async (req, resp) => {
+  let product = new Product(req.body);
+  let result = await product.save();
+  result = result.toObject();
+  resp.send(result);
+  console.log('product data inserted');
 });
 
 app.listen(5000);

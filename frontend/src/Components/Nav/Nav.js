@@ -12,49 +12,39 @@ const Nav = () => {
   };
   return (
     <div>
-      <ul className='nav-ul'>
-        <li>
-          <Link to='/'>Product</Link>
-        </li>
-        <li>
-          <Link to='/add'>Add Product</Link>
-        </li>
-        <li>
-          <Link to='/update'>Update Product</Link>
-        </li>
-        <li>
-          <Link to='/profile'>Profile</Link>
-        </li>
-        {/* <li>
-          {auth ? (
-            <Link to='/signup' onClick={logout}>
-              Logout
-            </Link>
-          ) : (
-            <Link to='/signup'>SignUp</Link>
-          )}
-        </li>
-        <li>
-          <Link to ='/login'>Login</Link>
-        </li> */}
-        {auth ? (
-          <li>
-            <Link to='/signup' onClick={logout}>
-              Logout
-            </Link>
-          </li>
-        ) : (
-          <>
+
+      {
+        auth ? (
+          <ul className='nav-ul'>
             <li>
-              <Link to='/sigup'>SignUp</Link>
+              <Link to='/'>Product</Link>
+            </li>
+            <li>
+              <Link to='/add'>Add Product</Link>
+            </li>
+            <li>
+              <Link to='/update'>Update Product</Link>
+            </li>
+            <li>
+              <Link to='/profile'>Profile</Link>
+            </li>
+            <li>
+              <Link to='/signup' onClick={logout}>
+                Logout ({JSON.parse(auth).name})
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <ul className='nav-ul nav-right'>
+            <li>
+              <Link to='/signup'>SignUp</Link>
             </li>
             <li>
               <Link to='/login'>Login</Link>
             </li>
-          </>
+          </ul >
         )}
-      </ul>
-    </div>
+    </div >
   );
 };
 
