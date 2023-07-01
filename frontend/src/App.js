@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Nav from './Components/Nav/Nav';
 import PrivateComponent from './Components/PrivateComponent';
-import AddProduct from './Components/Product/AddProduct';
+import ProductList from './Components/ProductList/ProductList';
+import AddProduct from './Components/AddProduct/AddProduct';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/Login/Login';
 import Footer from './Components/Footer/Footer';
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route element={<PrivateComponent />}>
             {/* <Route> is an element that renders some components when a current URL matches the route's path. <Link> is an element used to navigate through routes. */}
-            <Route path='/' element={<h1>Product Listing Component</h1>} />
+            <Route path='/' element={<ProductList />} />
             <Route path='/add' element={<AddProduct />} />
             <Route path='/update' element={<h1>Update Product Component</h1>} />
             <Route path='/logout' element={<h1>Logout</h1>} />

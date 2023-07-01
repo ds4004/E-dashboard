@@ -26,3 +26,10 @@
     border: 2px solid white;
     width: 320px;
 }
+
+.invalid-input{
+    color: red;
+    display: block;
+    margin: 10px 20px;
+    font-weight: 500;
+}
