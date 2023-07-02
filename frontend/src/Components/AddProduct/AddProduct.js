@@ -26,6 +26,12 @@ const AddProduct = () => {
     });
     result = await result.json();
     console.log(result);
+
+    setName("");
+    setPrice("");
+    setCategory("");
+    setCompany("");
+    console.log(name);
   };
 
   return (
@@ -35,6 +41,7 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter product name"
         className="prod-input"
+        value={name}
         onChange={(e) => setName(e.target.value)}
       />
       {error && !name ? (
@@ -46,6 +53,7 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter product price"
         className="prod-input"
+        value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
       {error && !price ? (
@@ -57,6 +65,7 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter product category name"
         className="prod-input"
+        value={category}
         onChange={(e) => setCategory(e.target.value)}
       />
       {error && !category ? (
@@ -68,6 +77,7 @@ const AddProduct = () => {
         type="text"
         placeholder="Enter product company name"
         className="prod-input"
+        value={company}
         onChange={(e) => setCompany(e.target.value)}
       />
       {error && !company ? (
