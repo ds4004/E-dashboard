@@ -88,7 +88,7 @@ app.get('/product/:id', async (req, resp) => {
 app.put('/product/:id', async (req, resp) => {
   // resp.send("working");
   const result = await Product.updateOne(
-    { _id: req.params.id }, 
+    { _id: req.params.id },
     { $set: req.body }
   );
   if (result) {
@@ -97,6 +97,17 @@ app.put('/product/:id', async (req, resp) => {
   else {
     resp.send({ result: "No Product found" });
   }
-})
+});
+
+app.get('/search/:key', async (req, resp) => {
+  let result = await Product.find({
+    "$or": [
+      { name: { $regex: req.params.key } },
+      { company: { $regex: req.params.key } },
+      { category: { $regex: req.params.key } },
+    ]
+  });
+  resp.send(result);
+});
 
 app.listen(5000);
