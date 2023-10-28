@@ -22,22 +22,6 @@ app.get('/', (req, resp) => {
   resp.send('App is working');
 });
 
-// const connectDB = async () => {
-//     mongoose.connect('mongodb://localhost:27017/e-comm');
-//     const productSchema = new mongoose.Schema({});
-//     const product = mongoose.model('product', productSchema);
-//     const data = await product.find();
-//     console.log(data);
-// }
-// connectDB();
-
-// how to set api for a particular route
-// app.post('/register', (req, resp) => {
-//   // resp.send('Api connected');  // to check if api is working
-//   resp.send(req.body); // to display the same content received as reqest
-//   // console.log('api working');
-// });
-
 // to insert a object in users
 app.post('/register', async (req, resp) => {
   let user = new User(req.body);
