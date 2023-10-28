@@ -10,14 +10,14 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/products");
+    let result = await fetch(`https://e-dashboard-api.vercel.app/products`);
     result = await result.json();
     setProducts(result);
   };
   console.log(products);
 
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:5000/product/${id}`, {
+    let result = await fetch(`https://e-dashboard-api.vercel.app/product/${id}`, {
       method: "Delete"
     });
     result = result.json();
@@ -30,7 +30,8 @@ const ProductList = () => {
   const searchResult = async (event) => {
     let key = event.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:5000/search/${key}`);
+      // let result = await fetch(`${process.env.api}` + `/search/${key}`);
+      let result = await fetch(`https://e-dashboard-api.vercel.app/search/${key}`);
       result = await result.json();
       if (result)
         setProducts(result);

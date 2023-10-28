@@ -17,7 +17,7 @@ const AddProduct = () => {
     let userId = JSON.parse(localStorage.getItem("user"));
     console.log(userId._id);
     userId = userId._id;
-    let result = await fetch("http://localhost:5000/addProduct", {
+    let result = await fetch("https://e-dashboard-api.vercel.app/addProduct", {
       method: "POST",
       body: JSON.stringify({ name, price, category, userId, company }),
       headers: {
