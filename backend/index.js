@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+// const cors = require("cors");
 const cors = require('cors');
 
 const connecttoDB = require('./config/db');
@@ -7,13 +8,14 @@ const User = require('./config/User');
 const Product = require('./config/Product');
 
 app.use(express.json());
-app.use(cors(
-  {
-    origin: ["https://e-dashboard-api.vercel.app/"],
-    methods: ["POST", "GET"],
-    credentials: true
-  }
-));
+app.use(cors());
+// app.use(cors(
+//   {
+//     origin: ["https://e-dashboard-api.vercel.app/"],
+//     methods: ["POST", "GET"],
+//     credentials: true
+//   }
+// ));
 
 connecttoDB();
 
